@@ -1,4 +1,3 @@
-
 #' @title Harmonized World Soil Database (HWSD) to SWIM
 #' @description
 #' This function computes the soil hydraulic properties from easily available soil properties
