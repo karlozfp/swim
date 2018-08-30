@@ -1,0 +1,36 @@
+include $(R_HOME)/etc$(R_ARCH)/Makeconf
+PROG =	../rswim2018.exe
+
+## debug friendly flags
+FFLAGS := -Wall -Og -fbounds-check -ffpe-trap=invalid -fbacktrace \
+				  -ffree-line-length-none --debug
+
+# files other files depend on (in order)
+DEPENDS := common.f90 mod_snow.f90 mod_reservoir.f90
+
+# SOURCES AND OBJECTS
+FSRCS = ${wildcard *.f}
+F90SRCS = ${filter-out $(DEPENDS), ${wildcard *.f90}}
+DEPENDOBJS = ${patsubst %.f90, %.o, $(DEPENDS)}
+OBJS = ${patsubst %.f, %.o, $(FSRCS)} ${patsubst %.f90, %.o, $(F90SRCS)}
+
+# add from swat
+all: $(PROG)
+
+clean:
+	rm -f $(PROG) *.o *.mod
+
+# LINKING
+$(PROG): $(OBJS)
+	$(FC) $(FFLAGS) $(DEPENDOBJS) $(OBJS) -o $@
+
+# DEPENDENCIES
+$(OBJS): $(DEPENDOBJS)
+
+# COMPILATIONS
+%.o: %.f
+	$(FC) $(FFLAGS) -c $<
+
+%.o: %.f90
+	$(FC) $(FFLAGS) -c $<
+

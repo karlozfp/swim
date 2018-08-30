@@ -1,0 +1,33 @@
+Package: SWIM
+Version: 0.1.0
+Title: R Utilities For The Model SWIM (Soil and Water Integrated Model)
+Description: Preprocessing of inputs data for SWIM model
+    and analysis of model outputs. 
+    SWIM is a continuous-time semi-distributed ecohydrological model,
+    integrating hydrological processes, vegetation, nutrients and erosion.
+    It was developed by Dr. Valentina Krysanova for the Potsdam Institute
+    for Climate Impact Research, Potsdam, Germany.
+Author: Carlos Antonio Fernandez Palomino
+Maintainer: Carlos Antonio Fernandez Palomino <cafpxl@gmail.com>
+License: GPL (>= 3)
+Encoding: UTF-8
+Depends: R (>= 3.5.0),
+Imports: 
+    dplyr,
+    DBI,
+    RSQLite,
+    rgrass7,
+    raster,
+    sp,
+    rgdal,
+    parallel,
+    zoo,
+    xts,
+    Rcpp
+LazyData: true
+ByteCompile: true
+RoxygenNote: 6.0.1
+Date: 2018-07-28
+NeedsCompilation: yes
+LinkingTo: 
+    Rcpp

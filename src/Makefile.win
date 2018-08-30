@@ -1,0 +1,16 @@
+include $(R_HOME)/etc$(R_ARCH)/Makeconf
+
+#-*- Makefile -*-
+#
+DIRS	= SWIM
+MFLAGS	= -f Makefile.win
+
+all: swim2018
+
+swim2018:
+	cd SWIM && $(MAKE) $(MFLAGS)
+
+clean :
+	-rm -f $(EXE) $(OBJS) $(OBJLIBS)
+	-for d in $(DIRS); do (cd $$d; $(MAKE) $(MFLAGS) clean ); done
+
