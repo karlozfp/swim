@@ -1,4 +1,3 @@
-
 #' @title Harmonized World Soil Database (HWSD) to SWIM
 #' @description
 #' This function computes the soil hydraulic properties from easily available soil properties
@@ -119,6 +118,7 @@ hwsd2swim <- function(input) {
   # Organic matter & nitrogen -----------------------------------------------
   # compute organic matter OM based on the organic carbon content (bodenkundliche
   # kartieranleitung 94)
+  #
   OM <- function(organcarbon) {return(organcarbon * 1.72)}
 
   # adding organic nitrogen content - this is just guess and far from the reality
